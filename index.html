@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Shop stylish and affordable fashion for women and girls at JMS Textiles. Order easily on WhatsApp." />
+  <title>JMS Textiles | Fashion for Women & Girls</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2352183d'/%3E%3Cpath d='M18 18h28v7H36v18c0 8-5 13-13 13-4 0-7-1-10-4l5-6c2 2 3 2 5 2 3 0 5-2 5-6V25H18z' fill='%23f4c56b'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="topbar">Free style guidance on WhatsApp · New festive collection now available</div>
+  <header>
+    <a class="brand" href="#home"><span>JMS</span> TEXTILES<small>Fashion for Women & Girls</small></a>
+    <button class="menu" aria-label="Open navigation" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    <nav><a href="#women">Women</a><a href="#girls">Girls</a><a href="#collection">Collection</a><a href="#offers">Offers</a><a href="#about">About</a><a class="nav-wa" data-wa="general">WhatsApp Us</a></nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">NEW SEASON · 2026</p>
+        <h1>Made to celebrate<br><em>every you.</em></h1>
+        <p>Beautiful sarees, graceful ethnic wear, and joyful girls’ styles—thoughtfully chosen for every day and every occasion.</p>
+        <div class="actions"><a class="btn gold" href="#collection">Shop Now</a><a class="btn light" href="#categories">View Collection</a><a class="text-link" data-wa="general">Order on WhatsApp →</a></div>
+      </div>
+      <div class="hero-image" role="img" aria-label="Elegant Indian fashion collection"><div class="hero-badge"><strong>Fresh arrivals</strong><span>Styles from ₹599</span></div></div>
+    </section>
+
+    <section class="trust"><span>✦ Curated styles</span><span>✦ Affordable prices</span><span>✦ Easy WhatsApp ordering</span><span>✦ Women & girls</span></section>
+
+    <section class="section" id="categories">
+      <div class="section-head"><div><p class="eyebrow">SHOP YOUR STYLE</p><h2>Collections for every moment</h2></div><p>Tap a category to see matching styles.</p></div>
+      <div class="category-wrap">
+        <article id="women" class="category-card women-card"><div><span>12 categories</span><h3>Women</h3><p>From timeless sarees to effortless everyday wear.</p></div></article>
+        <div class="chips" data-group="Women"></div>
+        <article id="girls" class="category-card girls-card"><div><span>9 categories</span><h3>Girls</h3><p>Playful, festive and celebration-ready favourites.</p></div></article>
+        <div class="chips" data-group="Girls"></div>
+      </div>
+    </section>
+
+    <section class="feature-strip" id="offers">
+      <button data-filter="New Arrivals"><b>01</b><span>New Arrivals<small>Just landed</small></span></button>
+      <button data-filter="Trending"><b>02</b><span>Trending Collections<small>Most loved</small></span></button>
+      <button data-filter="Festival"><b>03</b><span>Festival Collections<small>Dress to celebrate</small></span></button>
+      <button data-filter="Offer"><b>04</b><span>Special Offers<small>Beautiful savings</small></span></button>
+      <button data-filter="Best Seller"><b>05</b><span>Best Sellers<small>Customer favourites</small></span></button>
+    </section>
+
+    <section class="section products-section" id="collection">
+      <div class="section-head"><div><p class="eyebrow">CURATED FOR YOU</p><h2>Latest collection</h2></div><button class="clear-filter" onclick="renderProducts()">View all styles</button></div>
+      <div class="filter-row"><button class="active" data-cat="All">All</button><button data-cat="Women">Women</button><button data-cat="Girls">Girls</button></div>
+      <p class="sample-notice">Sample collection · AI-generated dress images and illustrative prices. Please confirm actual styles, sizes and availability on WhatsApp.</p>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="promo"><div><p class="eyebrow">FESTIVE EDIT</p><h2>Colour, craft and celebration.</h2><p>Discover occasion-ready looks for women and girls, with easy size guidance and ordering on WhatsApp.</p><a class="btn gold" data-wa="Festival Collection">Explore Festive Styles</a></div></section>
+
+    <section class="about" id="about"><div><p class="eyebrow">OUR STORY</p><h2>Fashion that feels like you.</h2></div><p>JMS Textiles brings stylish, affordable fashion to women and girls. From everyday comfort to celebration-ready elegance, every collection is selected to help you dress beautifully and confidently.</p><a data-wa="general">Chat with our team →</a></section>
+
+    <section class="instagram"><div><p class="eyebrow">FOLLOW ALONG</p><h2>@jmstextiles</h2><p>New drops, styling inspiration and our latest collection—coming soon on Instagram.</p><a class="btn dark" href="#" aria-label="Instagram profile link placeholder">Follow on Instagram</a></div><div class="insta-grid"><div></div><div></div><div></div></div></section>
+  </main>
+
+  <footer><div class="brand footer-brand"><span>JMS</span> TEXTILES<small>Fashion for Women & Girls</small></div><div><h4>Shop</h4><a href="#women">Women</a><a href="#girls">Girls</a><a href="#collection">New Arrivals</a><a href="#offers">Offers</a></div><div><h4>Connect</h4><a data-wa="general">WhatsApp Us</a><a href="#">Instagram</a><a href="tel:+919876543211">Contact Us</a></div><div><h4>Contact</h4><p>JMS Textiles<br>WhatsApp: 9876543211</p></div><p class="copyright">© 2026 JMS Textiles. Made for beautiful moments.</p></footer>
+
+  <a class="floating-wa" data-wa="general" aria-label="Order on WhatsApp"><span>WhatsApp</span>✆</a>
+  <dialog id="productDialog"><button class="close" onclick="this.closest('dialog').close()" aria-label="Close">×</button><div id="dialogBody"></div></dialog>
+  <script src="catalog.js"></script>
+</body>
+</html>
