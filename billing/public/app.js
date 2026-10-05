@@ -71,7 +71,14 @@ $('camera').addEventListener('click',guard(async()=>{
   try{await scanner.start({facingMode:'environment'},{fps:10,qrbox:{width:200,height:200}},async code=>{if(accepted)return;accepted=true;await stopScanner();try{addToCart(await api('/scan?code='+encodeURIComponent(code)));notify('Product scanned. Start the camera again for the next item.');}catch(error){notify(error.message);}},()=>{});}catch{await stopScanner();throw Error('Camera unavailable. Allow camera access on HTTPS, or use a USB scanner / type the SKU.');}
 }));
 $('stop-camera').addEventListener('click',stopScanner);
-$('cart').addEventListener('change',event=>{if(!event.target.matches('[data-qty]')||saved||pending)return;const row=cart[Number(event.target.dataset.qty)],qty=Number(event.target.value);if(!Number.isInteger(qty)||qty<1||qty>row.stock){notify('Quantity must be within available stock.');}else row.qty=qty;renderCart();});
+$('cart').addEventListener('change',event=>{
+  if(!event.target.matches('[data-qty]')||saved||pending)return;
+  const row=cart[Number(event.target.dataset.qty)],qty=Number(event.target.value);
+  if(!Number.isInteger(qty)||qty<1||qty>row.stock){notify('Quantity must be within available stock.');event.target.value=row.qty;}else row.qty=qty;
+  // Keep the focused input in place: replacing it during change can trigger a second blur/change.
+  event.target.closest('.cart-row').querySelector('strong').textContent=money(row.qty*row.priceCents);
+  $('piece-count').textContent=cart.reduce((sum,item)=>sum+item.qty,0)+' pieces';renderReceipt();
+});
 $('cart').addEventListener('click',event=>{const button=event.target.closest('[data-remove]');if(button&&!saved&&!pending){cart.splice(Number(button.dataset.remove),1);renderCart();}});
 $('bill-form').addEventListener('input',renderReceipt);
 $('paid-full').addEventListener('click',()=>{$('received').value=(Math.max(0,cartTotal())/100).toFixed(2);renderReceipt();});
