@@ -25,3 +25,10 @@ jobs:
       - run: npm run build
       - run: npm test
       - run: npm run test:integration
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:ui
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: billing-ui-check
+          path: billing/test-output/

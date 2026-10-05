@@ -172,7 +172,7 @@ npm run test:integration
 
 Integration tests download and start a temporary MongoDB replica set; they do not use your shop database. They test authentication, real transaction contention, duplicate requests, insufficient-stock rollback, cancellation, stock changes and history counts.
 
-The calculation tests and frontend build were verified during preparation. The integration suite could not start MongoDB in the preparation environment (`open: Operation not permitted`), so real-database test results must be confirmed in GitHub Actions or on your machine before live billing.
+The build, five unit tests and real MongoDB replica-set integration suite passed in GitHub Actions on 5 October 2026. The integration suite could not start MongoDB in the preparation container, so it was run successfully on the GitHub runner instead. The UI smoke test uses a mocked API; a real camera, physical QR label and your live Atlas/Vercel configuration still need a shop acceptance check.
 
 This is a single-shop, shared-admin version. It does not include multi-user roles, payment collection, automatic refunds, partial returns, a supplier purchase ledger, receivable settlement after saving a bill, or local-to-cloud synchronisation. Cancellation handles the whole bill. Existing browser-only bills are not automatically migrated; retain the old app's exported backup for historical records. Product prices are inclusive of the GST you configure, but receipts are not a complete statutory GST invoicing solution.
 
